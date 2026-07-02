@@ -1,42 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Run 3 (Flash via Ruffle)</title>
-  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-  <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      width: 100%;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #flash-container {
-      width: 100%;
-      height: 100%;
-    }
-    ruffle-player {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div id="flash-container"></div>
-  <script>
-    window.addEventListener("load", () => {
-      const ruffle = window.RufflePlayer.newest();
-      const player = ruffle.createPlayer();
-      document.getElementById("flash-container").appendChild(player);
+<div id="flash-container"></div>
 
-      // Load local SWF file (same folder as index.html)
-      player.load("Run3.swf");
-    });
-  </script>
-</body>
-</html>
-
-
+<script src="ruffle/ruffle.js"></script>
+<script>
+window.RufflePlayer = window.RufflePlayer || {};
+window.addEventListener("DOMContentLoaded", () => {
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    document.getElementById("flash-container").appendChild(player);
+    player.load("yourfile.swf");
+});
+</script>
